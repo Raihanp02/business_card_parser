@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fastapi-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./assets/models:/app/assets/models
+    environment:
+      MODEL_PATH: /assets/models/model.pt
+      TOKENIZER_PATH: /assets/models/tokenizer.json
